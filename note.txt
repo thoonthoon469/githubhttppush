@@ -1,0 +1,103 @@
+🚀 Step-by-Step Process (using HTTPS):
+1. Initialize Your Local Git Repo (if not already)
+bash
+Copy
+Edit
+cd your-project-directory
+git init
+2. Add Files & Make First Commit
+bash
+Copy
+Edit
+git add .
+git commit -m "Initial commit"
+3. Connect to GitHub Remote via HTTPS
+Go to your repository page on GitHub and copy the HTTPS URL, which looks like:
+
+arduino
+Copy
+Edit
+https://github.com/your-username/your-repo-name.git
+Then add the remote:
+
+bash
+Copy
+Edit
+git remote add origin https://github.com/your-username/your-repo-name.git
+4. Push to GitHub
+bash
+Copy
+Edit
+git push -u origin master
+Or for newer Git versions (default branch is usually main):
+
+bash
+Copy
+Edit
+git push -u origin main
+🔐 Authentication Options When Using HTTPS:
+When you push using HTTPS, Git will ask for your GitHub username and password/token.
+
+⚠️ GitHub No Longer Accepts Passwords (as of Aug 2021)
+Instead of a password, you must use a Personal Access Token (PAT):
+
+To create a PAT:
+Go to GitHub → Settings → Developer Settings → Personal Access Tokens
+
+Click "Generate new token"
+
+Select scopes like repo (for repository access)
+
+Copy the token (you won’t be able to see it again!)
+
+When Git prompts you:
+
+Enter your GitHub username
+
+Paste the Personal Access Token as the password
+
+🧠 Optional: Store Credentials
+To avoid entering the token every time:
+
+bash
+Copy
+Edit
+git config --global credential.helper cache
+Or for persistent storage:
+
+bash
+Copy
+Edit
+git config --global credential.helper store
+``>
+
+This will save the credentials to disk in plain text (use with caution).
+
+---
+
+## ✅ Summary:
+- Use HTTPS instead of SSH.
+- Authenticate with username and **Personal Access Token** (not password).
+- Add remote using HTTPS.
+- Push using `git push`.
+
+Let me know if you want a script or GUI alternative (like using GitHub Desktop or VSCode).
+
+
+✅ Required Repository Permission:
+repo scope
+This includes the following sub-permissions (when using a Personal Access Token):
+
+repo – Full control of private repositories
+
+repo:status – Access commit statuses
+
+repo_deployment – Access deployment statuses
+
+public_repo – Access to public repositories
+
+repo:invite – Accept repository invitations
+
+security_events – Access security events
+
+contents – Required to push code (read/write access to repository contents) ✅
